@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@plugin '../hero.ts';
+
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans: "font", sans-serif;
+    --font-mono: "monospace", monospace;
+}
+
+body {
+    background: white;
+}
+
+header {
+    max-width: 1520px !important;
+}
+
+.container {
+    max-width: 1520px;
+    margin: 9 auto;
+    padding: 10px 0;
+}
+
+.background_one {
+    background: url("../assets/banner_one.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.background_two {
+    background: url("../assets/banner_two.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.background_three {
+    background: url("../assets/banner_three.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #303030 !important;
+}
