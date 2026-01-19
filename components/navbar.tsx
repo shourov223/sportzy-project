@@ -4,8 +4,7 @@ import {
   NavbarMenu,
   NavbarMenuToggle,
   NavbarBrand,
-  NavbarItem,
-  NavbarMenuItem,
+  NavbarItem
 } from "@heroui/navbar";
 import NextLink from "next/link";
 import { FaRegUser } from "react-icons/fa";

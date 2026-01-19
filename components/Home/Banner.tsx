@@ -6,7 +6,7 @@ import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { Jost } from 'next/font/google';
 import { montserrat } from '../navbar';
 
-const jost = Jost({
+export const jost = Jost({
     weight: ["400", "500", "600", "700", "800"],
     subsets: ["latin"]
 })

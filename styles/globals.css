@@ -9,6 +9,8 @@
 @theme {
     --font-sans: "font", sans-serif;
     --font-mono: "monospace", monospace;
+    /* color */
+    --text-textcolor: #303030;
 }
 
 body {
@@ -22,7 +24,7 @@ header {
 .container {
     max-width: 1520px;
     margin: 9 auto;
-    padding: 10px 0;
+    padding: 0 20px;
 }
 
 .background_one {
