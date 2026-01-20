@@ -9,12 +9,14 @@
 @theme {
     --font-sans: "font", sans-serif;
     --font-mono: "monospace", monospace;
-    /* color */
-    --text-textcolor: #303030;
 }
 
 body {
-    background: white;
+    background: white !important;
+}
+
+section {
+    background: white !important;
 }
 
 header {
