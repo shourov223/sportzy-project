@@ -1,22 +1,12 @@
 "use client"
 import { createContext, useEffect, useState } from "react"
 import axios from "axios"
-import type { ReactNode } from "react"
 
-interface ProductContextType {
-    product: any[]
-    loading: boolean
-    Loader: any
-}
+export const ProductContext = createContext()
 
-export const ProductContext = createContext<any[]>()
 
-interface PropsType {
-    children: ReactNode
-}
-
-const ProductProvider = ({ children }: PropsType) => {
-    const [product, setProduct] = useState<any[]>([])
+const ProductProvider = ({ children }) => {
+    const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {

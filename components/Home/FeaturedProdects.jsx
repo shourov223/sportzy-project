@@ -22,13 +22,13 @@ const ProductCard = ({ image, title, price, category }) => {
                 />
                 <div className='w-full h-12 sm:h-14 md:h-[68px] bg-white absolute bottom-0 left-0 right-0 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-200'>
                     <button
-                        className='w-1/2 bg-pink-500 py-[10px] rounded-tl-[20px] flex items-center justify-center hover:bg-pink-600 active:bg-pink-400 transition-colors duration-150'
+                        className='w-1/2 bg-pink-500 py-[10px] rounded-tl-[30px] flex items-center justify-center hover:bg-pink-600 active:bg-pink-400 transition-colors duration-150'
                         aria-label="Add to wishlist"
                     >
                         <GiSelfLove className='text-white text-lg sm:text-xl md:text-2xl' />
                     </button>
                     <button
-                        className='w-1/2 bg-green-600 py-[10px] rounded-br-[20px] flex items-center justify-center hover:bg-green-700 active:bg-green-400 transition-colors duration-150'
+                        className='w-1/2 bg-green-600 py-[10px] rounded-br-[30px] flex items-center justify-center hover:bg-green-700 active:bg-green-400 transition-colors duration-150'
                         aria-label="Add to cart"
                     >
                         <RiShoppingCartLine className='text-white text-lg sm:text-xl md:text-2xl' />
