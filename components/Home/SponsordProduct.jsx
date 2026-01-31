@@ -5,21 +5,36 @@ import { Jost, Montserrat } from "next/font/google"
 import Image from "next/image"
 
 const montserrat = Montserrat({
-    weight: ["400", "500", "600", "700", "800"]
-})
-const jost = Jost({
-    weight: ["400", "500", "600", "700", "800"]
+    subsets: ['latin'],
+    weight: ["400", "500", "600", "700", "800"],
+    display: 'swap',
 })
 
-const SponsordProduct = () => {
+const jost = Jost({
+    subsets: ['latin'],
+    weight: ["400", "500", "600", "700", "800"],
+    display: 'swap',
+})
+
+const SponsoredProduct = () => {
     const { product } = useContext(ProductContext)
-    console.log(product)
+
+    if (!product || product.length === 0) {
+        return null
+    }
+
     return (
-        <section>
-            <div className="container">
-                <div className="flex items-center gap-3">
-                    <ProductCard category={product.category} image={product.thumbnail} title={product.title} />
-                    <ProductCard category={product.category} image={product.thumbnail} title={product.title} />
+        <section className="py-8 md:py-12">
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+                    {product.slice(0, 2).map((item, index) => (
+                        <ProductCard
+                            key={item.id || index}
+                            image={item.thumbnail}
+                            title={item.title}
+                            category={item.category}
+                        />
+                    ))}
                 </div>
             </div>
         </section>
@@ -28,17 +43,37 @@ const SponsordProduct = () => {
 
 const ProductCard = ({ image, category, title }) => {
     return (
-        <div className="py-[25px] pl-[38px] pr-[68px] bg-[#F2F2F2] grid grid-cols-3 items-center justify-between gap-[10px] w-[50%]">
-            <div className="w-[116px] h-[119px]">
-                <Image src={image} alt="image" />
+        <div className="bg-[#F2F2F2] rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <div className="flex flex-col sm:flex-row items-center gap-4 p-4 sm:p-6 md:p-8">
+                
+                <div className="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 relative">
+                    <Image
+                        src={image}
+                        alt={title}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 640px) 96px, (max-width: 768px) 112px, 128px"
+                    />
+                </div>
+
+                <div className="flex-1 flex flex-col items-center sm:items-start gap-2 md:gap-3 text-center sm:text-left">
+                    <p className={`text-[#C1032F] text-sm md:text-base font-semibold uppercase tracking-wide ${montserrat.className}`}>
+                        {category}
+                    </p>
+                    <h3 className={`text-black text-lg md:text-xl lg:text-2xl font-bold line-clamp-2 ${jost.className}`}>
+                        {title}
+                    </h3>
+                </div>
+
+                <button
+                    className={`flex-shrink-0 w-full sm:w-auto py-3 px-6 md:py-4 md:px-8 lg:px-10 bg-[#C1032F] hover:bg-[#a00228] text-white text-sm md:text-base font-semibold uppercase tracking-wide transition-colors duration-300 rounded ${montserrat.className}`}
+                    aria-label={`Shop ${title}`}
+                >
+                    SHOP NOW
+                </button>
             </div>
-            <div className="flex items-center gap-3 flex-col">
-                <p className={`text-[#C1032F] text-base leading-[24px]s font-semibold ${montserrat.className}`}>{category}</p>
-                <p className={`text-black text-[24px] leading-[32px] font-bold ${jost.className}`}>{title}</p>
-            </div>
-            <button className="py-[22px] px-10 bg-[#C1032F] text-white text-base font-semibold">SHOP NOW</button>
         </div>
     )
 }
 
-export default SponsordProduct
+export default SponsoredProduct
