@@ -53,3 +53,17 @@ header {
 .swiper-pagination-bullet-active {
     background-color: #303030 !important;
 }
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-slide {
+    animation: slide 20s linear infinite;
+}

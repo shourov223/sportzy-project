@@ -3,6 +3,7 @@ import Facilities from "@/components/Home/Facilities";
 import FeaturedProdects from "@/components/Home/FeaturedProdects";
 import SponsordProduct from "@/components/Home/SponsordProduct";
 import QandA from "@/components/Home/QandA"
+import InfiniteSlider from "@/components/Home/InfinitySlider";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <FeaturedProdects />
       <SponsordProduct />
       <QandA />
+      <InfiniteSlider />
     </>
   );
 }
