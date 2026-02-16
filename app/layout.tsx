@@ -7,6 +7,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import Footer from "../components/Footer"
 import ProductProvider from "@/context/ProductContext";
 
 export const metadata: Metadata = {
@@ -46,6 +47,7 @@ export default function RootLayout({
             <ProductProvider>
               <Navbar />
               {children}
+              <Footer />
             </ProductProvider>
           </div>
         </Providers>

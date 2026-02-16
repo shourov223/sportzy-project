@@ -4,7 +4,6 @@ import FeaturedProdects from "@/components/Home/FeaturedProdects";
 import SponsordProduct from "@/components/Home/SponsordProduct";
 import QandA from "@/components/Home/QandA"
 import InfiniteSlider from "@/components/Home/InfinitySlider";
-import Footer from "../components/Footer"
 
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <SponsordProduct />
       <QandA />
       <InfiniteSlider />
-      <Footer/>
     </>
   );
 }
