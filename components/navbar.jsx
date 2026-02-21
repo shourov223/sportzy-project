@@ -13,6 +13,7 @@ import { CiSearch } from "react-icons/ci";
 
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
+import Link from "next/link";
 
 
 export const montserrat = Montserrat({
@@ -36,9 +37,9 @@ export const Navbar = () => {
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2 text-[#303030] text-base font-semibold leading-7">
           {navItems.map((item, index) => (
-            <NavbarItem key={index}>
+            <Link href={index === 0 ? "/" : index === 1 ? "/products" : index === 2 ? "/" : index === 3 ? "/" : ""} key={index}>
               {item}
-            </NavbarItem>
+            </Link>
           ))}
         </ul>
       </NavbarContent >

@@ -8,9 +8,9 @@ import { montserrat } from '../navbar'
 import { ProductContext } from '@/context/ProductContext'
 
 
-const ProductCard = ({ image, title, price, category }) => {
+export const ProductCard = ({ image, title, price, category }) => {
     return (
-        <div className='border border-gray-200 p-3 sm:p-4 md:p-5 rounded-xl md:rounded-2xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 bg-white'>
+        <div className='border border-gray-200 p-3 sm:p-4 md:p-5 rounded-xl md:rounded-2xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 bg-white h-[613px]'>
             <div className='h-[180px] sm:h-[250px] md:h-[350px] lg:h-[400px] xl:h-[420px] relative'>
                 <Image
                     className='w-full h-full object-contain'
