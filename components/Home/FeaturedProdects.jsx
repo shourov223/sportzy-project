@@ -6,11 +6,12 @@ import { RiShoppingCartLine } from "react-icons/ri"
 import { jost } from './Banner'
 import { montserrat } from '../navbar'
 import { ProductContext } from '@/context/ProductContext'
+import Link from 'next/link'
 
 
-export const ProductCard = ({ image, title, price, category }) => {
+export const ProductCard = ({ image, title, price, category, id }) => {
     return (
-        <div className='border border-gray-200 p-3 sm:p-4 rounded-xl sm:rounded-2xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 bg-white flex flex-col'>
+        <Link href={`/details/${id}`} className='border border-gray-200 p-3 sm:p-4 rounded-xl sm:rounded-2xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 bg-white flex flex-col'>
 
             {/* Image Container — fixed aspect ratio, no fixed height */}
             <div className='relative w-full aspect-[4/3] sm:aspect-square overflow-hidden rounded-lg bg-gray-50'>
@@ -52,7 +53,7 @@ export const ProductCard = ({ image, title, price, category }) => {
                     ${price}
                 </p>
             </div>
-        </div>
+        </Link>
     )
 }
 
@@ -121,6 +122,7 @@ const FeaturedProducts = () => {
                                 image={item.thumbnail}
                                 title={item.title}
                                 price={item.price}
+                                id={item.id}
                             />
                         ))
                         : (

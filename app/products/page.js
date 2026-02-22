@@ -5,7 +5,7 @@ import Topbar from "../../components/products/Topbar"
 const page = () => {
     return (
         <main className="bg-white">
-            <Topbar />
+            <Topbar href={"/products"} pageName={"All Products"} />
             <AllProducts />
         </main>
     )
