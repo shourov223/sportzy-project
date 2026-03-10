@@ -17,7 +17,7 @@ const logos = [
 
 const InfiniteSlider = () => {
     return (
-        <section>
+        <section className="pb-[50px]">
             <div className="container">
                 <div className="overflow-hidden w-full">
                     <div className="flex animate-slide gap-[200px]">

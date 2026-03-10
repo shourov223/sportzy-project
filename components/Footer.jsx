@@ -131,7 +131,7 @@ const Footer = () => {
     }
 
     return (
-        <footer className='py-12 md:py-20 lg:py-30 mt-12 md:mt-20 lg:mt-30 border-t border-black bg-white'>
+        <footer className='py-12 md:py-20 lg:py-30 border-t border-black bg-white'>
             <div className="container">
                 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-12'>
