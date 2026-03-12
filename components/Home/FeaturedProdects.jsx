@@ -1,8 +1,6 @@
 "use client";
 import React, { useContext, useState, useMemo } from "react";
 import Image from "next/image";
-import { GiSelfLove } from "react-icons/gi";
-import { RiShoppingCartLine } from "react-icons/ri";
 import { jost } from "./Banner";
 import { montserrat } from "../navbar";
 import { ProductContext } from "@/context/ProductContext";
