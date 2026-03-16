@@ -36,12 +36,12 @@ export const Navbar = () => {
             <Image src={"/mainLogo.svg"} alt="iamge" width={183} height={24} />
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start ml-2 text-[#303030] text-base font-semibold leading-7">
+        <ul className="hidden lg:flex gap-4 justify-start ml-2 text-[#303030] text-base font-semibold leading-7 text-nowrap">
           {navItems.map((item, index) => (
             <Link
               href={
                 index === 0
-                  ? "/"
+                  ? "#category_sec"
                   : index === 1
                     ? "/products"
                     : index === 2

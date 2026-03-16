@@ -13,8 +13,9 @@
   --font-mono: "monospace", monospace;
 }
 
-html{
+html {
   background-color: white !important;
+  scroll-behavior: smooth;
 }
 
 section {
