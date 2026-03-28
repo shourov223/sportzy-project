@@ -12,12 +12,20 @@ import Image from "next/image";
 import { montserrat } from "@/components/navbar";
 import { jost } from "@/components/Home/Banner";
 import { FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/cartSlice";
+import { toast } from "sonner";
 
 const ViewProduct = () => {
   const { id } = useParams();
   const { product } = useContext(ProductContext);
   const singleProduct = product.find((p) => p.id === Number(id));
   const [qty, setQty] = useState(0);
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(singleProduct));
+  };
 
   return (
     <section>
@@ -104,7 +112,10 @@ const ViewProduct = () => {
             </p>
 
             <div className="grid grid-cols-[1fr_56px] sm:grid-cols-[1fr_64px] gap-3 sm:gap-4 items-center pt-6 sm:pt-8">
-              <button className="uppercase bg-black text-white py-4 sm:py-[17px] cursor-pointer text-sm sm:text-base font-semibold tracking-widest hover:bg-red-500 transition-colors duration-200">
+              <button
+                onClick={handleAddToCart}
+                className="uppercase bg-black text-white py-4 sm:py-[17px] cursor-pointer text-sm sm:text-base font-semibold tracking-widest hover:bg-red-500 transition-colors duration-200"
+              >
                 Add to Cart
               </button>
               <button className="py-4 sm:py-[17px] bg-[#f2f2f2] h-14 sm:h-[64px] grid place-items-center cursor-pointer hover:bg-red-100 transition-colors duration-200">

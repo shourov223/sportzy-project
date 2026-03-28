@@ -3,11 +3,12 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
+import ReduxProvider from "../Provider/ReduxProvider";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 import ProductProvider from "@/context/ProductContext";
 
 export const metadata: Metadata = {
@@ -42,15 +43,17 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen bg-white">
-            <ProductProvider>
-              <Navbar />
-              {children}
-              <Footer />
-            </ProductProvider>
-          </div>
-        </Providers>
+        <ReduxProvider>
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+            <div className="relative flex flex-col h-screen bg-white">
+              <ProductProvider>
+                <Navbar />
+                {children}
+                <Footer />
+              </ProductProvider>
+            </div>
+          </Providers>
+        </ReduxProvider>
       </body>
     </html>
   );
