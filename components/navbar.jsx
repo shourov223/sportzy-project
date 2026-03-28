@@ -30,7 +30,6 @@ export const Navbar = () => {
 
   const cart = useSelector((state) => state.cart);
 
-  // 🔥 hydration fix
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -79,8 +78,6 @@ export const Navbar = () => {
           <div className="border-x px-4 border-[#303030]">
             <Link href={"/cart"} className="flex items-center gap-2">
               <IoMdCart className="text-[#303030]" />
-
-              {/* 🔥 hydration safe render */}
               <span className="text-black text-[14px] font-semibold">
                 {mounted ? cart.length : 0}
               </span>
@@ -96,7 +93,14 @@ export const Navbar = () => {
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {navItems.map((item, index) => (
-            <NavbarItem key={index}>{item}</NavbarItem>
+            <Link
+              href={
+                index === 0 ? "#category_sec" : index === 1 ? "/products" : "/"
+              }
+              key={index}
+            >
+              {item}
+            </Link>
           ))}
 
           <div className="flex items-center gap-5 pt-[20px]">
@@ -106,7 +110,9 @@ export const Navbar = () => {
             </div>
 
             <div className="border-x px-4">
-              <IoMdCart />
+              <Link href={"/cart"}>
+                <IoMdCart />
+              </Link>
             </div>
 
             <CiSearch />
