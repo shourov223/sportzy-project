@@ -31,7 +31,6 @@ export const Navbar = () => {
 
   const [mounted, setMounted] = useState(false);
 
-  // ✅ menu control state
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -51,7 +50,7 @@ export const Navbar = () => {
           <NextLink
             className="flex justify-start items-center gap-1"
             href="/"
-            onClick={() => setIsMenuOpen(false)} // ✅ close on logo click
+            onClick={() => setIsMenuOpen(false)}
           >
             <Image src={"/mainLogo.svg"} alt="image" width={183} height={24} />
           </NextLink>
@@ -109,7 +108,7 @@ export const Navbar = () => {
                 index === 0 ? "#category_sec" : index === 1 ? "/products" : "/"
               }
               key={index}
-              onClick={() => setIsMenuOpen(false)} // ✅ auto close
+              onClick={() => setIsMenuOpen(false)}
             >
               {item}
             </Link>
@@ -124,7 +123,7 @@ export const Navbar = () => {
             <div className="border-x px-4">
               <Link
                 href={"/cart"}
-                onClick={() => setIsMenuOpen(false)} // ✅ auto close
+                onClick={() => setIsMenuOpen(false)}
               >
                 <IoMdCart />
               </Link>
