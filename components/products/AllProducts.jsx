@@ -172,7 +172,7 @@ const AllProducts = () => {
               {filteredProducts.length} product
               {filteredProducts.length !== 1 ? "s" : ""} found
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-5">
               {filteredProducts.length > 0 ? (
                 filteredProducts.map((item, index) => (
                   <ProductCard

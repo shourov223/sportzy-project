@@ -6,7 +6,6 @@ import {
   NavbarMenu,
   NavbarMenuToggle,
   NavbarBrand,
-  NavbarItem,
 } from "@heroui/navbar";
 import NextLink from "next/link";
 import { FaRegUser } from "react-icons/fa";
@@ -32,19 +31,28 @@ export const Navbar = () => {
 
   const [mounted, setMounted] = useState(false);
 
+  // ✅ menu control state
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
     <HeroUINavbar
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
       className={`${montserrat.className} bg-white`}
       maxWidth="xl"
       position="sticky"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 min-w-fit">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
+          <NextLink
+            className="flex justify-start items-center gap-1"
+            href="/"
+            onClick={() => setIsMenuOpen(false)} // ✅ close on logo click
+          >
             <Image src={"/mainLogo.svg"} alt="image" width={183} height={24} />
           </NextLink>
         </NavbarBrand>
@@ -88,7 +96,10 @@ export const Navbar = () => {
         </div>
       </NavbarContent>
 
-      <NavbarMenuToggle className="text-black lg:hidden" />
+      <NavbarMenuToggle
+        className="text-black lg:hidden"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      />
 
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2">
@@ -98,6 +109,7 @@ export const Navbar = () => {
                 index === 0 ? "#category_sec" : index === 1 ? "/products" : "/"
               }
               key={index}
+              onClick={() => setIsMenuOpen(false)} // ✅ auto close
             >
               {item}
             </Link>
@@ -110,12 +122,17 @@ export const Navbar = () => {
             </div>
 
             <div className="border-x px-4">
-              <Link href={"/cart"}>
+              <Link
+                href={"/cart"}
+                onClick={() => setIsMenuOpen(false)} // ✅ auto close
+              >
                 <IoMdCart />
               </Link>
             </div>
 
-            <CiSearch />
+            <div onClick={() => setIsMenuOpen(false)}>
+              <CiSearch />
+            </div>
           </div>
         </div>
       </NavbarMenu>

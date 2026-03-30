@@ -85,10 +85,10 @@ const ViewProduct = () => {
               </p>
               <div className="flex items-center gap-2 sm:gap-3">
                 <button
-                  onClick={() => setQty(qty + 1)}
-                  className="bg-red-500 size-8 sm:size-[30px] rounded-full grid place-items-center cursor-pointer"
+                  onClick={() => setQty(qty - 1)}
+                  className={`bg-red-500 size-8 sm:size-[30px] rounded-full grid place-items-center cursor-pointer ${qty === 0 ? "pointer-events-none opacity-50" : "pointer-events-auto"}`}
                 >
-                  <FaPlus className="text-white font-bold text-xs" />
+                  <FaMinus className="text-white font-bold text-xs" />
                 </button>
                 <input
                   type="text"
@@ -97,10 +97,10 @@ const ViewProduct = () => {
                   className="p-2 pl-4 border border-black focus:outline-0 text-black w-12 sm:w-[50px] rounded-md text-center"
                 />
                 <button
-                  onClick={() => setQty(qty - 1)}
-                  className={`bg-red-500 size-8 sm:size-[30px] rounded-full grid place-items-center cursor-pointer ${qty === 0 ? "pointer-events-none opacity-50" : "pointer-events-auto"}`}
+                  onClick={() => setQty(qty + 1)}
+                  className="bg-red-500 size-8 sm:size-[30px] rounded-full grid place-items-center cursor-pointer"
                 >
-                  <FaMinus className="text-white font-bold text-xs" />
+                  <FaPlus className="text-white font-bold text-xs" />
                 </button>
               </div>
             </div>
